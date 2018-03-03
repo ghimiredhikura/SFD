@@ -92,12 +92,12 @@ S³FD is a real-time face detector, which performs superiorly on various scales 
 Download the [EVALUATION TOOLBOX](https://bitbucket.org/marcopede/face-eval) for evaluation. We call this directory `$CAFFE/SFD/face-eval`.
 
 1. Evaluate our model on AFW dataset.
-   ```Shell
-   # Put sfd_afw_dets.txt from `$CAFFE/SFD/sfd_test_code/AFW` to `$CAFFE/SFD/face-eval/detections/PASCAL`.
-   cd $CAFFE//SFD/face-eval
-   python plot_AP.py --dataset AFW
-   # The final evaulation ROC graph will be stored in `$CAFFE/SFD/face-eval/`
-   ```
+```Shell
+# Put sfd_afw_dets.txt from `$CAFFE/SFD/sfd_test_code/AFW` to `$CAFFE/SFD/face-eval/detections/PASCAL`.
+cd $CAFFE//SFD/face-eval
+python plot_AP.py --dataset AFW
+# The final evaulation ROC graph will be stored in `$CAFFE/SFD/face-eval/`
+```
 
 
 
