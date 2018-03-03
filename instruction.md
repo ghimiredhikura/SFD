@@ -27,7 +27,7 @@ S³FD is a real-time face detector, which performs superiorly on various scales 
   ```Shell
   # Modify Makefile.config according to your Caffe installation.
   cp Makefile.config.example Makefile.config
-  # use nproc to check how how many cores you can use, in our case we used 8 cores
+  # use nproc to check how many cores you can use, in our case we used 8 cores
   make -j8 
   # Make sure python is installed correctly and environment path is set.
   make py
