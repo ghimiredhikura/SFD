@@ -90,9 +90,7 @@ S³FD is a real-time face detector, which performs superiorly on various scales 
 ### Running evaluation benchmarks
 
 
-
 ### Results
-
 
 
 ### Issues encountered
