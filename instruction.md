@@ -10,7 +10,7 @@ S³FD is a real-time face detector, which performs superiorly on various scales 
 
 1. [Preparation](#preparation)
 2. [Download of datasets](#download)
-3. [Compiule and Run SFD detector](#compilation)
+3. [Compile and Run SFD detector](#compilation)
 4. [Running evaluation benchmarks](#runningevaluationbenchmark)
 5. [Results](#results)
 6. [Issues encountered](#issues)
@@ -46,7 +46,7 @@ S³FD is a real-time face detector, which performs superiorly on various scales 
 3. Download [PASCAL face (train/validataion)](http://host.robots.ox.ac.uk/pascal/VOC/voc2012/index.html) dataset and [PASCAL face (test)](http://host.robots.ox.ac.uk:8080/eval/challenges/voc2012/) dataset. Merge them into single directory. We call this directory `$CAFFE/SFD/PASCAL_FACE`.
 4. Download [WIDER FACE](http://mmlab.ie.cuhk.edu.hk/projects/WIDERFace/) datasets. We will call this directory `$CAFFE/SFD/WIDER_FACE`.
 
-### Compiule and Run SFD detector
+### Compile and Run SFD detector
 
 1. Compile and Run SFD detector on AFW dataset.
   ```Shell
@@ -116,4 +116,4 @@ for example "2008_000216.jpg" image in pascal_img_list.txt is not in dataset.
 Solution: Mix training-validation dataset with test dataset from pascal 2012 cahallenge.
 After mixing [training/validation data](http://host.robots.ox.ac.uk/pascal/VOC/voc2012/index.html) with [test data](http://host.robots.ox.ac.uk:8080/eval/challenges/voc2012/), all the pascal images listed in "sfd_test_code/PASCAL_face/pascal_img_list.txt" are available in merged folder. 
 
-2. The AFW dataset evaluation of our detector and other detector present in EVALUATION TOOLBOX, the result is posted in Result section. Seems something wrong as ROC curce of our detector is very poor. working on this!
+2. After the AFW dataset evaluation of our detector and other detector present in EVALUATION TOOLBOX, the result is posted in [Results](#results) section. Seems something wrong as ROC curve of our detector is very poor. working on this!
