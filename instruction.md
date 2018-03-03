@@ -13,7 +13,7 @@ S³FD is a real-time face detector, which performs superiorly on various scales 
 3. [Compiule and Run SFD detector](#sfd-compilation)
 4. [Running evaluation benchmarks](#running-evaluation-benchmark)
 5. [Results](#results)
-6. [Issues Encountered](#issues)
+6. [Issues encountered](#issues)
 
 ### Preparation
 
@@ -39,26 +39,26 @@ S³FD is a real-time face detector, which performs superiorly on various scales 
 
 4. Get this git [SFD](https://github.com/bonseyes/SFD). We will call the directory that you cloned SFD into `$CAFFE/SFD`. Make sure that above sfd_test_code is in the folder `$CAFFE/SFD/sfd_test_code`
 
-### Download of Datasets
+### Download of datasets
 
 1. Download [AFW](http://www.ics.uci.edu/~xzhu/face/) dataset. We will call this directory `$CAFFE/SFD/AFW`.
 2. Download [FDDB](http://vis-www.cs.umass.edu/fddb/index.html) dataset. We will call this directory `$CAFFE/SFD/FDDB`.
 3. Download [PASCAL face (train/validataion)](http://host.robots.ox.ac.uk/pascal/VOC/voc2012/index.html) dataset and [PASCAL face (test)](http://host.robots.ox.ac.uk:8080/eval/challenges/voc2012/) dataset. Merge them into single directory. We call this directory `$CAFFE/SFD/PASCAL_FACE`.
 4. Download [WIDER FACE](http://mmlab.ie.cuhk.edu.hk/projects/WIDERFace/) datasets. We will call this directory `$CAFFE/SFD/WIDER_FACE`.
 
-### Compilation of SFD test
+### Compiule and Run SFD detector
 
 1. Compile and Run SFD detector on AFW dataset.
   ```Shell
   cd $CAFFE/SFD/sfd_test_code/AFW
-  # You must modify the "Path" in the afw_test.py to your AFW path if your path is different then this tutorial. 
+  # You must modify the "Path" in the afw_test.py to your AFW path if your path is different then in this tutorial. 
   # It will creat sfd_afw_dets.txt.
   python afw_test.py
   ```
 2. Compipe and Run SFD detector on PASCAL dataset.
   ```Shell
   cd $CAFFE/SFD/sfd_test_code/PASCAL_FACE
-  # You must modify the "Path" in the pascal_test.py to your PASCAL_face path if your path is not different from the one in this   tutorial. 
+  # You must modify the "Path" in the pascal_test.py to your PASCAL_face path if your is different then in this tutorial. 
   # It will creat sfd_pascal_dets.txt.
   python pascal_test.py
   ```
@@ -87,7 +87,7 @@ S³FD is a real-time face detector, which performs superiorly on various scales 
   # Or you can use latest eval_tools of WIDER FACE.
   # There is a slight difference between them, since the annotation used for the evaluation is slightly change around March 2017.
   ```
-### Running Evaluation Benchmarks
+### Running evaluation benchmarks
 
 
 
@@ -95,7 +95,7 @@ S³FD is a real-time face detector, which performs superiorly on various scales 
 
 
 
-### Issues Encountered
+### Issues encountered
 
 While testing on pascal dataset some images in "sfd_test_code/PASCAL_face/pascal_img_list.txt" can't not be found.
 I used PASCAL dataset from VOCtrainval_11-May-2012.tar (VOCdevkit/VOC2012/JPEGImages).
