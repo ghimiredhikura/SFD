@@ -9,9 +9,9 @@ S³FD is a real-time face detector, which performs superiorly on various scales 
 ### Documentation
 
 1. [Preparation](#preparation)
-2. [Download of datasets](#download-dataset)
-3. [Compiule and Run SFD detector](#sfd-compilation)
-4. [Running evaluation benchmarks](#running-evaluation-benchmark)
+2. [Download of datasets](#download)
+3. [Compiule and Run SFD detector](#compilation)
+4. [Running evaluation benchmarks](#runningevaluationbenchmark)
 5. [Results](#results)
 6. [Issues encountered](#issues)
 
