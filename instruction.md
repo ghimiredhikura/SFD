@@ -10,7 +10,7 @@ S³FD is a real-time face detector, which performs superiorly on various scales 
 
 1. [Preparation](#preparation)
 2. [Download of datasets](#download-dataset)
-3. [Compilation of SFD test](#sfd-compilation)
+3. [Compiule and Run SFD detector](#sfd-compilation)
 4. [Running evaluation benchmarks](#running-evaluation-benchmark)
 5. [Results](#results)
 6. [Issues Encountered](#issues)
@@ -47,6 +47,51 @@ S³FD is a real-time face detector, which performs superiorly on various scales 
 4. Download [WIDER FACE](http://mmlab.ie.cuhk.edu.hk/projects/WIDERFace/) datasets. We will call this directory `$CAFFE/SFD/WIDER_FACE`.
 
 ### Compilation of SFD test
+
+1. Compile and Run SFD detector on AFW dataset.
+  ```Shell
+  cd $CAFFE/SFD/sfd_test_code/AFW
+  # You must modify the "Path" in the afw_test.py to your AFW path if your path is different then this tutorial. 
+  # It will creat sfd_afw_dets.txt.
+  python afw_test.py
+  ```
+2. Compipe and Run SFD detector on PASCAL dataset.
+  ```Shell
+  cd $CAFFE/SFD/sfd_test_code/PASCAL_FACE
+  # You must modify the "Path" in the pascal_test.py to your PASCAL_face path if your path is not different from the one in this   tutorial. 
+  # It will creat sfd_pascal_dets.txt.
+  python pascal_test.py
+  ```
+  python fddb_test.py
+
+3. Compile and Run SFD detector on FDDB dataset.
+  ```Shell
+  cd $SFD_ROOT/sfd_test_code/FDDB
+  # You must modify the "Path" in the fddb_test.py to your FDDB path.
+  # It will creat sfd_fddb_dets.txt.
+  python fddb_test.py
+  # Fitting the dets from rectangle box to ellipse box.
+  # It will creat sfd_fddb_dets_fit.txt and put it in the FDDB evalution code to evalute.
+  cd fddb_from_rectangle_to_ellipse
+  matlab -nodesktop -nosplash -nojvm -r "run fitting.m;quit;"
+  # If you want to get the results of FDDB in our paper, you should use our 'FDDB_annotation_ellipseList_new.txt'
+  ```
+
+4. Compile and Run SFD detector on WIDER FACE dataset.
+  ```Shell
+  cd $SFD_ROOT/sfd_test_code/WIDER_FACE
+  # You must modify the path in the wider_test.py to your WIDERFACE path. 
+  # It will creat detection results in the "eval_tools_old-version" folder.
+  python wider_test.py
+  # If you want to get the results of val set in our paper, you should use the provided "eval_tools_old-version". 
+  # Or you can use latest eval_tools of WIDER FACE.
+  # There is a slight difference between them, since the annotation used for the evaluation is slightly change around March 2017.
+  ```
+### Running Evaluation Benchmarks
+
+
+
+### Results
 
 
 
