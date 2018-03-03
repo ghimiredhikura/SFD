@@ -109,13 +109,11 @@ python plot_AP.py --dataset AFW
 
 ### Issues encountered
 
-While testing on pascal dataset some images in "sfd_test_code/PASCAL_face/pascal_img_list.txt" can't not be found.
+1. While testing on pascal dataset, some images listed in "sfd_test_code/PASCAL_face/pascal_img_list.txt" are not found.
 I used PASCAL dataset from VOCtrainval_11-May-2012.tar (VOCdevkit/VOC2012/JPEGImages).
 for example "2008_000216.jpg" image in pascal_img_list.txt is not in dataset.
 
-Solution: Mix training-validation-testing data from pascal 2012 cahallenge
-After mixing training/validation date from 
-http://host.robots.ox.ac.uk/pascal/VOC/voc2012/index.html 
-with test data from 
-http://host.robots.ox.ac.uk:8080/eval/challenges/voc2012/, 
-now all the pascal images listed in "sfd_test_code/PASCAL_face/pascal_img_list.txt" are present. 
+Solution: Mix training-validation dataset with test dataset from pascal 2012 cahallenge.
+After mixing [training/validation data](http://host.robots.ox.ac.uk/pascal/VOC/voc2012/index.html) with [test data](http://host.robots.ox.ac.uk:8080/eval/challenges/voc2012/), all the pascal images listed in "sfd_test_code/PASCAL_face/pascal_img_list.txt" are available in merged folder. 
+
+2. The AFW dataset evaluation of our detector and other detector present in EVALUATION TOOLBOX, the result is posted in Result section. Seems something wrong as ROC curce of our detector is very poor. working on this!
