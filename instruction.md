@@ -43,7 +43,7 @@ S³FD is a real-time face detector, which performs superiorly on various scales 
 
 1. Download [AFW](http://www.ics.uci.edu/~xzhu/face/) dataset. We will call this directory `$CAFFE/SFD/AFW`.
 2. Download [FDDB](http://vis-www.cs.umass.edu/fddb/index.html) dataset. We will call this directory `$CAFFE/SFD/FDDB`.
-3. Download [PASCAL face (train/validataion)](http://host.robots.ox.ac.uk/pascal/VOC/voc2012/index.html) dataset and [PASCAL face test](http://host.robots.ox.ac.uk:8080/eval/challenges/voc2012/) dataset. Merge them into single directory. We call this directory `$CAFFE/SFD/PASCAL_FACE`.
+3. Download [PASCAL face (train/validataion)](http://host.robots.ox.ac.uk/pascal/VOC/voc2012/index.html) dataset and [PASCAL face (test)](http://host.robots.ox.ac.uk:8080/eval/challenges/voc2012/) dataset. Merge them into single directory. We call this directory `$CAFFE/SFD/PASCAL_FACE`.
 4. Download [WIDER FACE](http://mmlab.ie.cuhk.edu.hk/projects/WIDERFace/) datasets. We will call this directory `$CAFFE/SFD/WIDER_FACE`.
 
 ### Compilation of SFD test
