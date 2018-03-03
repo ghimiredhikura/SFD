@@ -8,11 +8,11 @@ S³FD is a real-time face detector, which performs superiorly on various scales 
 
 ### Documentation
 
-1. [Download of datasets] (#download dataset)
-2. [Compilation of Caffe] (#caffe compilation)
-3. [Running evaluation benchmarks] (#running evaluation benchmark)
-4. [Results] (#results)
-5. [Issues Encountered] (#issues)
+1. [Download of datasets](#download dataset)
+2. [Compilation of Caffe](#caffe compilation)
+3. [Running evaluation benchmarks](#running evaluation benchmark)
+4. [Results](#results)
+5. [Issues Encountered](#issues)
 
 
 
