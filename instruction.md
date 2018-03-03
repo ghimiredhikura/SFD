@@ -102,7 +102,9 @@ python plot_AP.py --dataset AFW
 
 ### Results
 
+1. AFW
 
+![Alt text](https://github.com/ghimiredhikura/SFD/blob/master/sfd_test_code/AFW/AFW_eval.png)
 
 
 ### Issues encountered
