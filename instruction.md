@@ -105,12 +105,12 @@ python plot_AP.py
 ```
 
 ### Results
-I. AFW 
+1. AFW 
 ![Alt text](https://github.com/ghimiredhikura/SFD/blob/master/sfd_test_code/AFW/AFW_eval.png)
-II. PASCAL
+2. PASCAL face
 ![Alt text](https://github.com/ghimiredhikura/SFD/blob/master/sfd_test_code/PASCAL_face/PASCAL_eval.png)
 
-## Reference (results from original paper)
+#### Reference (results from original paper)
 
 ![Alt text](https://github.com/ghimiredhikura/SFD/blob/master/sfd_test_code/AFW-PASCAL.JPG)
 ![Alt text](https://github.com/ghimiredhikura/SFD/blob/master/sfd_test_code/FDDB.JPG)
