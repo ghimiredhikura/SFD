@@ -51,21 +51,21 @@ S³FD is a real-time face detector, which performs superiorly on various scales 
 1. Compile and Run SFD detector on AFW dataset.
   ```Shell
   cd $CAFFE/SFD/sfd_test_code/AFW
-  # You must modify the "Path" in the afw_test.py to your AFW path if your path is different then in this tutorial. 
+  # You must modify the "Path" in the afw_test.py to your AFW path if it is different then in this tutorial. 
   # It will creat sfd_afw_dets.txt.
   python afw_test.py
   ```
 2. Compipe and Run SFD detector on PASCAL dataset.
   ```Shell
   cd $CAFFE/SFD/sfd_test_code/PASCAL_FACE
-  # You must modify the "Path" in the pascal_test.py to your PASCAL_face path if your is different then in this tutorial. 
+  # You must modify the "Path" in the pascal_test.py to your PASCAL_face path if it is different then in this tutorial. 
   # It will creat sfd_pascal_dets.txt.
   python pascal_test.py
   ```
 3. Compile and Run SFD detector on FDDB dataset.
   ```Shell
   cd $SFD_ROOT/sfd_test_code/FDDB
-  # You must modify the "Path" in the fddb_test.py to your FDDB path.
+  # You must modify the "Path" in the fddb_test.py to your FDDB path if it is different then in this tutorial.
   # It will creat sfd_fddb_dets.txt.
   python fddb_test.py
   # Fitting the dets from rectangle box to ellipse box.
