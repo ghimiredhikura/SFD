@@ -102,7 +102,9 @@ python plot_AP.py --dataset AFW
 
 ### Results
 
-
+![Alt text](https://github.com/ghimiredhikura/SFD/blob/master/sfd_test_code/AFW-PASCAL.JPG)
+![Alt text](https://github.com/ghimiredhikura/SFD/blob/master/sfd_test_code/FDDB.JPG)
+![Alt text](https://github.com/ghimiredhikura/SFD/blob/master/sfd_test_code/WIDER.JPG)
 
 ### Issues encountered
 
