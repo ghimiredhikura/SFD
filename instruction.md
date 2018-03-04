@@ -105,6 +105,7 @@ python plot_AP.py --dataset AFW
 ![Alt text](https://github.com/ghimiredhikura/SFD/blob/master/sfd_test_code/AFW-PASCAL.JPG)
 ![Alt text](https://github.com/ghimiredhikura/SFD/blob/master/sfd_test_code/FDDB.JPG)
 ![Alt text](https://github.com/ghimiredhikura/SFD/blob/master/sfd_test_code/WIDER.JPG)
+![Alt text](https://github.com/ghimiredhikura/SFD/blob/master/sfd_test_code/Eval%20Table.JPG)
 
 ### Issues encountered
 
