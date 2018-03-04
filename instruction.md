@@ -115,8 +115,7 @@ for example "2008_000216.jpg" image in pascal_img_list.txt is not in dataset. <b
 Solution: Mix training-validation dataset with test dataset from pascal 2012 cahallenge. After mixing [training/validation data](http://host.robots.ox.ac.uk/pascal/VOC/voc2012/index.html) with [test data](http://host.robots.ox.ac.uk:8080/eval/challenges/voc2012/), all the pascal images listed in "sfd_test_code/PASCAL_face/pascal_img_list.txt" are available in merged folder. 
 
 2. Problem: After the AFW/PASCAL dataset evaluation of our detector and other detector present in EVALUATION TOOLBOX, the result is posted in [Results](#results) section. Seems something wrong as ROC curve of our detector is very poor. <br />
-Solution: Working on this!
-I. AFW
+Solution: Fixed. The detection result in AFW dataset is now exactly same as in the original paper. <br />
+I. AFW 
 ![Alt text](https://github.com/ghimiredhikura/SFD/blob/master/sfd_test_code/AFW/AFW_eval.png)
 II. PASCAL
-![Alt text](https://github.com/ghimiredhikura/SFD/blob/master/sfd_test_code/PASCAL_face/PASCAL_eval.png)
