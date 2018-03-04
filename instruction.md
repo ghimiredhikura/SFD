@@ -62,8 +62,6 @@ S³FD is a real-time face detector, which performs superiorly on various scales 
   # It will creat sfd_pascal_dets.txt.
   python pascal_test.py
   ```
-  python fddb_test.py
-
 3. Compile and Run SFD detector on FDDB dataset.
   ```Shell
   cd $SFD_ROOT/sfd_test_code/FDDB
@@ -93,12 +91,18 @@ Download the [EVALUATION TOOLBOX](https://bitbucket.org/marcopede/face-eval) for
 
 1. Evaluate our model on AFW dataset.
 ```Shell
-# Put sfd_afw_dets.txt from `$CAFFE/SFD/sfd_test_code/AFW` to `$CAFFE/SFD/face-eval/detections/PASCAL`.
-cd $CAFFE//SFD/face-eval
+# Put sfd_afw_dets.txt from `$CAFFE/SFD/sfd_test_code/AFW` to `$CAFFE/SFD/face-eval/detections/AFW`.
+cd $CAFFE/SFD/face-eval
 python plot_AP.py --dataset AFW
-# The final evaulation ROC graph will be stored in `$CAFFE/SFD/face-eval/`
+# The final evaulation ROC graph will be stored in `$CAFFE/SFD/face-eval/`.
 ```
-
+2. Evaluate our model on PASCAL face dataset
+```Shell
+# Put sfd_pascal_dets.txt from `$CAFFE/SFD/sfd_test_code/PASCAL_face` to `$CAFFE/SFD/face-eval/detections/PASCAL`
+cd $CAFFE/SFD/face-eval
+python plot_AP.py 
+# The final evaluation ROC graph will be stored in `$CAFFE/SFD/face-eval/.
+```
 
 ### Results
 
