@@ -102,10 +102,7 @@ python plot_AP.py --dataset AFW
 
 ### Results
 
-1. AFW
-![Alt text](https://github.com/ghimiredhikura/SFD/blob/master/sfd_test_code/AFW/AFW_eval.png)
-2. PASCAL
-![Alt text](https://github.com/ghimiredhikura/SFD/blob/master/sfd_test_code/PASCAL_face/PASCAL_eval.png)
+
 
 ### Issues encountered
 
@@ -116,3 +113,7 @@ Solution: Mix training-validation dataset with test dataset from pascal 2012 cah
 
 2. Problem: After the AFW/PASCAL dataset evaluation of our detector and other detector present in EVALUATION TOOLBOX, the result is posted in [Results](#results) section. Seems something wrong as ROC curve of our detector is very poor. <br />
 Solution: Working on this!
+I. AFW
+![Alt text](https://github.com/ghimiredhikura/SFD/blob/master/sfd_test_code/AFW/AFW_eval.png)
+II. PASCAL
+![Alt text](https://github.com/ghimiredhikura/SFD/blob/master/sfd_test_code/PASCAL_face/PASCAL_eval.png)
