@@ -126,7 +126,7 @@ Solution: Mix training-validation dataset with test dataset from pascal 2012 cah
 
 2. Problem: After the AFW/PASCAL dataset evaluation of our detector and other detector present in EVALUATION TOOLBOX, the result of SFD detector is not as expected. Seems something wrong as ROC curve of our detector is very poor. <br />
 Solution: Fixed. AFW: The detection result in AFW dataset is now exactly same as in the original paper. It was because of wrong linkag e of deploy.prototxt! <br />
-3. Problem: The detection result in PASCAL face is 97.60% where as in original paper it is 98.49%. Checking this if something wrong in testing
+3. Problem: The detection result in PASCAL face is 97.60% where as in original paper it is 98.49%. <br />
 Solution: Fixed. PASCAL: In original `$SFD/sfd_test_code/PASCAL_face/pascal_test.py` test code, it was evaluating using "pascal_img_list_edit.txt" image list which produce 97.60%, but in the original paper evaluated using "pascal_img_list.txt" which gives 98.49%. So I changed test image list from "pascal_img_list_edit.txt" to "pascal_img_list.txt" in test script. 
 
 The detection result in AFW and PASCAL dataset is verified and updated in git, it works as claimed in original paper. 
