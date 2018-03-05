@@ -107,11 +107,12 @@ python plot_AP.py
 ### Results
 1. AFW 
 ![Alt text](https://github.com/ghimiredhikura/SFD/blob/master/sfd_test_code/AFW/AFW_eval.png)
-Example 
+Example <br />
 ![Alt text](https://github.com/ghimiredhikura/SFD/blob/master/sfd_test_code/AFW/frame_afw.jpg)
+
 2. PASCAL face
 ![Alt text](https://github.com/ghimiredhikura/SFD/blob/master/sfd_test_code/PASCAL_face/PASCAL_eval.png)
-Example 
+Example <br />
 ![Alt text](https://github.com/ghimiredhikura/SFD/blob/master/sfd_test_code/PASCAL_face/frame_pascal.jpg)
 
 #### Reference (results from original paper)
