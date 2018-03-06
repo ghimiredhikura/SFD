@@ -33,7 +33,9 @@
     ccmake ..
     # Then press "c" to configure and wait for a while
     # All the dependencies and linking paths will appear, and you can change what you need. For us we change:
+    #
     # BLAS: Open
+    #
     # Press "t" to see more options, and then change:
     #
     # CUDA_ARCH_NAME:  All
@@ -79,7 +81,7 @@ If you have access to a modern system, then you probably have a newer version of
     cmake -DCMAKE_C_COMPILER=/usr/bin/gcc-6 -DCMAKE_CXX_COMPILER=/usr/bin/g++-6 ...other options... 
     ```
 
-   To find the correct path for those binaries in your system, you can run `which gcc-6` and `which python3`
+   To find the correct path for those binaries in your system, you can run `which gcc-6`
 
 ##### CUDA issues
 If your compiling fails with this error message:
