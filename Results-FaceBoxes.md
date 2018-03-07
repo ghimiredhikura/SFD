@@ -5,5 +5,5 @@
 
 ### Face Detection
 
-The results of each procedure in FaceBoxes are contained in result folder. The final results are shown in the flowing. 
+The FaceBoxes face detector from "[FaceBoexes Git](https://github.com/zeusees/FaceBoxes)" is evaluated in AFW test sets. The results are as follows.  
 ![1](sfd_test_code/AFW/FaceBoxes_Test_AFW.png)
