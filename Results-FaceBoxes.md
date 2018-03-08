@@ -8,4 +8,7 @@
 Download test script from [here](sfd_test_code/AFW/FaceBoxes_afw_test.py)
 
 The FaceBoxes face detector from [FaceBoexes Git](https://github.com/zeusees/FaceBoxes) is evaluated in AFW test sets. The results are as follows.  
+
+![1](sfd_test_code/AFW/FaceBoxes_afw.png)
+
 ![1](sfd_test_code/AFW/FaceBoxes_Test_AFW.png)
