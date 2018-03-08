@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 root_dir=$(git rev-parse --show-toplevel)
-source $root_dir/scripts/datasets/datasets_utils.sh 
+source $root_dir/scripts/data/datasets_utils.sh 
 
 dst_dir=$1
 output_dir=$(create_folder "$dst_dir" "FDDB")

@@ -1,0 +1,51 @@
+__pycache__/
+*$py.class
+*.py[cod]
+
+# C extensions
+*.so
+
+# Unit test / coverage reports
+*.cover
+.cache
+.coverage
+.coverage.*
+.hypothesis/
+.pytest_cache/
+.tox/
+coverage.xml
+htmlcov/
+nosetests.xml
+
+# Jupyter Notebook
+.ipynb_checkpoints
+
+# Environments
+.env
+.venv
+ENV/
+env.bak/
+env/
+venv.bak/
+venv/
+
+# Tmp files
+*.swp
+*.tmp
+~*
+
+# Datasets
+AFW/
+FDDB/
+PASCAL_FACE/
+WIDER_FACE/
+datasets/
+
+# Third party projects
+face-eval/
+
+# Caffe
+*.binaryproto
+*.caffemodel
+*.prototxt
+*.solverstate

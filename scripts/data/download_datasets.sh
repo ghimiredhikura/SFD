@@ -1,19 +1,11 @@
 #!/usr/bin/env bash
 
 root_dir=$(git rev-parse --show-toplevel)
+source $root_dir/scripts/data/datasets_utils.sh
 
 function help_message {
     echo "Valid options:"
     echo "    -d    Directory where to download all the datasets"
-}
-
-function invalid_option {
-    # $1 is the OPTARG that was wrong
-    # $2 is the script name ($0)
-    echo "Invalid option: -$1" >&2
-    echo "Execute:"
-    echo "$2 -h"
-    echo "to read a list of valid parameters."
 }
 
 unset option
@@ -36,6 +28,7 @@ done
 if [[ -z $directory ]]
 then
     echo "You must provide a valid directory where to download the datasets with option -d"
+    exit 1
 fi
 
 if [[ ! -d $directory ]]
@@ -43,7 +36,7 @@ then
     mkdir -p $directory
 fi
 
-for name in "afw" "fddb" # "pascal" "wider"
+for name in "wider" #"afw" "fddb" "pascal" "wider"
 do
-    $root_dir/scripts/datasets/download_${name}.sh $directory
+    $root_dir/scripts/data/download_${name}.sh $directory
 done
