@@ -1,10 +1,8 @@
-# S³FD: Single Shot Scale-invariant Face Detector
-
-By [Shifeng Zhang](http://www.cbsr.ia.ac.cn/users/sfzhang/)
+# Test instructions for S³FD: Single Shot Scale-invariant Face Detector
 
 ### Introduction
 
-S³FD is a real-time face detector, which performs superiorly on various scales of faces with a single deep neural network, especially for small faces. For more details, please refer to our [arXiv paper](https://arxiv.org/abs/1708.05237).
+S³FD is a real-time face detector, which performs superiorly on various scales of faces with a single deep neural network, especially for small faces. For more details, please refer to their original [arXiv paper](https://arxiv.org/abs/1708.05237).
 
 ### Documentation
 
@@ -19,16 +17,29 @@ S³FD is a real-time face detector, which performs superiorly on various scales 
 
 1. To install the proper version of Caffe, follow the [SSD Installation Instructions](./SSD-install.md)
 
-2. Download our [pre-trained model](https://drive.google.com/open?id=1CboBIsjcDQ-FC1rMES6IjTl6sYQDoD6u) and merge it with the folder `$CAFFE/models` in `$CAFFE/models/sfd_models/VGGNet/WIDER_FACE/SFD_trained`.
+2. Download the authors' [pre-trained model](https://drive.google.com/open?id=1CboBIsjcDQ-FC1rMES6IjTl6sYQDoD6u). To do so, you can run:
+    
+    ```Shell
+    ./scripts/download_model.sh
+    ```
 
-3. Get this git [SFD](https://github.com/bonseyes/SFD). We will call the directory that you cloned SFD into `$CAFFE/SFD`. Make sure that above sfd_test_code is in the folder `$CAFFE/SFD/sfd_test_code`
+    The model will be located in `$CAFFE/models/sfd_models/VGGNet/WIDER_FACE/SFD_trained`.
+
+3. Clone this repository [SFD](https://github.com/bonseyes/SFD) in `$CAFFE/SFD`. Make sure that the folder `$CAFFE/SFD/sfd_test_code` exists.
 
 ### Download datasets
 
-1. Download [AFW](http://www.ics.uci.edu/~xzhu/face/) dataset. We will call this directory `$CAFFE/SFD/AFW`.
-2. Download [FDDB](http://vis-www.cs.umass.edu/fddb/index.html) dataset. We will call this directory `$CAFFE/SFD/FDDB`.
-3. Download [PASCAL face (train/validataion)](http://host.robots.ox.ac.uk/pascal/VOC/voc2012/index.html) dataset and [PASCAL face (test)](http://host.robots.ox.ac.uk:8080/eval/challenges/voc2012/) dataset. Merge them into single directory. We call this directory `$CAFFE/SFD/PASCAL_FACE`.
-4. Download [WIDER FACE](http://mmlab.ie.cuhk.edu.hk/projects/WIDERFace/) datasets. We will call this directory `$CAFFE/SFD/WIDER_FACE`.
+To automatically download the datasets, you can execute:
+
+    ```Shell
+    ./scripts/datasets/download_datasets.sh -d desired/path/for/datasets
+    ```
+
+You can also download them manually:
+1. [AFW](http://www.ics.uci.edu/~xzhu/face/)
+2. [FDDB](http://vis-www.cs.umass.edu/fddb/index.html)
+3. [PASCAL face (train/validataion)](http://host.robots.ox.ac.uk/pascal/VOC/voc2012/index.html) and [PASCAL face (test)](http://host.robots.ox.ac.uk:8080/eval/challenges/voc2012/)
+4. [WIDER FACE](http://mmlab.ie.cuhk.edu.hk/projects/WIDERFace/)
 
 ### Compile and Run SFD detector
 
@@ -39,7 +50,7 @@ S³FD is a real-time face detector, which performs superiorly on various scales 
   # It will creat sfd_afw_dets.txt.
   python afw_test.py
   ```
-2. Compipe and Run SFD detector on PASCAL dataset.
+2. Compile and Run SFD detector on PASCAL dataset.
   ```Shell
   cd $CAFFE/SFD/sfd_test_code/PASCAL_FACE
   # You must modify the "Path" in the pascal_test.py to your PASCAL_face path if it is different then in this tutorial. 
@@ -63,7 +74,7 @@ S³FD is a real-time face detector, which performs superiorly on various scales 
   ```Shell
   cd $SFD_ROOT/sfd_test_code/WIDER_FACE
   # You must modify the path in the wider_test.py to your WIDERFACE path. 
-  # It will creat detection results in the "eval_tools_old-version" folder.
+  # It will create detection results in the "eval_tools_old-version" folder.
   python wider_test.py
   # If you want to get the results of val set in our paper, you should use the provided "eval_tools_old-version". 
   # Or you can use latest eval_tools of WIDER FACE.
