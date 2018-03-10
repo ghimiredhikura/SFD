@@ -20,24 +20,19 @@
 
  4- prepared the file "labelmap_wider.prototxt" which contains the labels of the training and testing, 0 is background and 1 is face.  <br />
 
-
 2. Modify the data augmentation code of SSD to make sure that it does not change the image ratio.
-(Detail these steps here including which source files and what lines of code)  [TODO] <br />
-
--> TODO: make sure to follow the data augmentation strategy in the paper.  <br />
+(Detail these steps here including which source files and what lines of code)  [DONE] <br />
+-> [DONE] The augmentation strategy in the paper of SFD is followed, and the image ration is not changing. The details of this part is implemented in the python script for training.  <br />
 
 3. Modify the anchor match code of SSD to implement the 'scale compensation anchor matching strategy'.
 (Detail these steps here including which source files and what lines of code)  [TODO] <br />
 
 -> TODO: modify the 'MatchBBox' function in bbox_util.cpp by adding extra stage to implement the stage 2 of anchor matching strategy.  <br />
--> TODO: Make sure the implemaentation is as mentioned in the paper to avoid performance difference.  <br />
 -> TODO: investigate more about "Max-out background label" mentioned in the paper!  <br />
 
 4. Train the model.
-(Provide train script including amount of training time and validation loss curves and anything else useful)  <br />
+(Provide train script including amount of training time and validation loss curves and anything else useful) [DONE] <br />
 
--> TODO: Prepare python script following SSD style that will include defining anchor box scales, stride, used VGG layers, augmentaion, then start training.  <br />
--> TODO: Check training details from the paper (learning rate, max iterations, etc)  <br />
--> TODO: Generate tarining loss and validation loss graphs after training.  <br />
-
- 
+-> [DONE] Prepare python script following SSD style that will include defining anchor box scales, stride, used VGG layers, augmentaion, then start training.  <br />
+-> [DONE] Check training details from the paper (learning rate, max iterations, etc)  <br />
+-> TODO: Generate tarining loss and validation loss graphs after training is finished.  <br />
