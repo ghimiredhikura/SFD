@@ -23,6 +23,8 @@
 2. Modify the data augmentation code of SSD to make sure that it does not change the image ratio.
 (Detail these steps here including which source files and what lines of code)  [DONE] <br />
 -> [DONE] The augmentation strategy in the paper of SFD is followed, and the image ration is not changing. The details of this part is implemented in the python script for training.  <br />
+-> In the file $CAFEE_ROOT/python/caffe/model_libs.py Change part of the function "VGGNetBody" in line 391 to be as follows "net[name] = L.Pooling(net.relu5_3, pool=P.Pooling.MAX, kernel_size=2, stride=2)" <br />
+
 
 3. Modify the anchor match code of SSD to implement the 'scale compensation anchor matching strategy'.
 (Detail these steps here including which source files and what lines of code)  [TODO] <br />
