@@ -99,26 +99,31 @@ python plot_AP.py
 # The final evaluation ROC graph will be stored in `$CAFFE/SFD/face-eval/.
 ```
 
-### Results
+### Reproduced Results
 1. AFW 
-![Alt text](https://github.com/ghimiredhikura/SFD/blob/master/sfd_test_code/AFW/AFW_eval.png)
+![Alt text](assets/AFW_eval.png)
 2. PASCAL face
-![Alt text](https://github.com/ghimiredhikura/SFD/blob/master/sfd_test_code/PASCAL_face/PASCAL_eval.png)
+![Alt text](assets/PASCAL_eval.png)
 
 #### Reference (results from original paper)
 
-![Alt text](https://github.com/ghimiredhikura/SFD/blob/master/sfd_test_code/AFW-PASCAL.JPG)
-![Alt text](https://github.com/ghimiredhikura/SFD/blob/master/sfd_test_code/FDDB.JPG)
-![Alt text](https://github.com/ghimiredhikura/SFD/blob/master/sfd_test_code/WIDER.JPG)
-![Alt text](https://github.com/ghimiredhikura/SFD/blob/master/sfd_test_code/Eval%20Table.JPG)
+![Alt text](assets/AFW-PASCAL.JPG)
+![Alt text](assets/FDDB.JPG)
+![Alt text](assets/WIDER.JPG)
+![Alt text](assets/Eval%20Table.JPG)
 
 ### Issues encountered
 
-1. Problem: While testing on pascal dataset, some images listed in "sfd_test_code/PASCAL_face/pascal_img_list.txt" are not found.
-I used PASCAL dataset from VOCtrainval_11-May-2012.tar (VOCdevkit/VOC2012/JPEGImages).
-for example "2008_000216.jpg" image in pascal_img_list.txt is not in dataset. <br />
-Solution: Mix training-validation dataset with test dataset from pascal 2012 cahallenge. After mixing [training/validation data](http://host.robots.ox.ac.uk/pascal/VOC/voc2012/index.html) with [test data](http://host.robots.ox.ac.uk:8080/eval/challenges/voc2012/), all the pascal images listed in "sfd_test_code/PASCAL_face/pascal_img_list.txt" are available in merged folder. 
+#### 1. While testing on pascal dataset, some images listed in "sfd_test_code/PASCAL_face/pascal_img_list.txt" are not found.
+    I used PASCAL dataset from VOCtrainval_11-May-2012.tar (VOCdevkit/VOC2012/JPEGImages).
+    for example "2008_000216.jpg" image in pascal_img_list.txt is not in dataset. <br />
 
-2. Problem: After the AFW/PASCAL dataset evaluation of our detector and other detector present in EVALUATION TOOLBOX, the result of SFD detector is not as expected. Seems something wrong as ROC curve of our detector is very poor. <br />
-Solution: Fixed. The detection result in AFW dataset is now exactly same as in the original paper. It was because of wrong linkag e of deploy.prototxt! <br />
-The detection result in PASCAL face is 97.60% where as in original paper it is 98.49%. Checking this if something wrong in testing.
+    Solution: Mix training-validation dataset with test dataset from pascal 2012 cahallenge. After mixing [training/validation data](http://host.robots.ox.ac.uk/pascal/VOC/voc2012/index.html) with [test data](http://host.robots.ox.ac.uk:8080/eval/challenges/voc2012/), all the pascal images listed in "sfd_test_code/PASCAL_face/pascal_img_list.txt" are available in merged folder. 
+    This is now done automatically by the dataset downloading scripts.
+
+#### 2. After the AFW/PASCAL dataset evaluation of our detector and other detector present in EVALUATION TOOLBOX, the result of SFD detector is not as expected.
+    Seems something wrong as ROC curve of our detector is very poor. <br />
+    Solution: Fixed. The detection result in AFW dataset is now exactly same as in the original paper. It was because of wrong linkag e of deploy.prototxt! <br />
+
+#### 3. The detection result in PASCAL face is 97.60% where as in original paper it is 98.49%
+    Solution: Using the correct version of Python and recompiling Caffe got PASCAL-face to 98.49
