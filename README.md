@@ -19,9 +19,9 @@ Follow the instructions [here](./docs/SSD-install.md) to download and install th
 
 ### Evaluation
 
-To test the pre-trained models, read the [Test Instructions](./docs/Test-Instructions)
+To test the pre-trained models, read the [Test Instructions](./docs/Test-Instructions.md)
 
 
 ### Training 
 
-To train new models using SFD, read the [Train Instructions](./docs/Train-Instructions)
+To train new models using SFD, read the [Train Instructions](./docs/Train-Instructions.md)
