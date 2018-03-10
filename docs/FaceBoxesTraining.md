@@ -18,6 +18,7 @@ Then run the script "start_training_m10.sh" to start training. <br />
 
 # Notes
 FaceBoxes use Inception as base network not VGG as SFD.  <br />
+In original FaceBoxes implementation they use image with size 1024x1024 but here we use size 324x324
 In this repo, they use umdfaces dataset for training "http://www.umdfaces.io/" but we used widerface.  <br />
 Training parameters "in solver.prototxt" were all used exactly as they use it in this repo, except some modifications as follows:  <br />
 -> The model will be evaluated with validation set each 5000 iterartions.  <br />
