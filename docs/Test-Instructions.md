@@ -29,11 +29,11 @@ S³FD is a real-time face detector, which performs superiorly on various scales 
 
 ### Download datasets
 
-To automatically download the datasets, you can execute:
+To automatically download the datasets, you can execute
 
-    ```
-    ./scripts/datasets/download_datasets.sh -d desired/path/for/datasets
-    ```
+```Shell
+./scripts/datasets/download_datasets.sh -d desired/path/for/datasets
+```
 
 You can also download them manually:
 1. [AFW](http://www.ics.uci.edu/~xzhu/face/)
