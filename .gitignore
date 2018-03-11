@@ -45,7 +45,7 @@ datasets/
 face-eval/
 
 # Caffe
-*.binaryproto
-*.caffemodel
-*.prototxt
-*.solverstate
+#*.binaryproto
+#*.caffemodel
+#*.prototxt
+#*.solverstate
