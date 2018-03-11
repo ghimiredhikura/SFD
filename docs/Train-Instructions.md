@@ -27,10 +27,9 @@
 
 
 3. Modify the anchor match code of SSD to implement the 'scale compensation anchor matching strategy'.
-(Detail these steps here including which source files and what lines of code)  [TODO] <br />
+(Detail these steps here including which source files and what lines of code)  [DONE] <br />
 
--> TODO: modify the 'MatchBBox' function in bbox_util.cpp by adding extra stage to implement the stage 2 of anchor matching strategy.  <br />
--> TODO: investigate more about "Max-out background label" mentioned in the paper!  <br />
+-> [DONE] modify the 'MatchBBox' function in bbox_util.cpp by adding extra stage to implement the stage 2 of anchor matching strategy. This part is added in the file bbox_util.cpp inside SSD code. The modified file will be attached with the final code. After this modification, caffe should be recombiled again. <br />
 
 4. Train the model.
 (Provide train script including amount of training time and validation loss curves and anything else useful) [DONE] <br />
@@ -38,3 +37,9 @@
 -> [DONE] Prepare python script following SSD style that will include defining anchor box scales, stride, used VGG layers, augmentaion, then start training.  <br />
 -> [DONE] Check training details from the paper (learning rate, max iterations, etc)  <br />
 -> TODO: Generate tarining loss and validation loss graphs after training is finished.  <br />
+
+# Run the training in the server
+
+When the training script is run in the server, it will quit if we closed the terminal or if the internet is cut. To solve this we use the command "screen" as follows: <br />
+After you ssh in, run screen. This will start another shell running within screen. Run your command, then do a "Ctrl-a-d". This will "disconnect" you from the screen session. At this point, you can log out or do anything else you'd like. When you want to re-connect to the screen session, just run "screen -RD" from the shell prompt.
+more commands can be found here: http://aperiodic.net/screen/quick_reference
