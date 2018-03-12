@@ -21,8 +21,9 @@ def process_imgs_list(imgs_list_file, output_file, dataset_path, origin, device=
             height = image.shape[0]
             width = image.shape[1]
         
-            im_shrink = 640.0 / max(height, width)
-            image = cv2.resize(image, None, None, fx=im_shrink, fy=im_shrink, interpolation=cv2.INTER_LINEAR)
+            if origin in ['AFW', 'PASCAL']:
+                im_shrink = 640.0 / max(height, width)
+                image = cv2.resize(image, None, None, fx=im_shrink, fy=im_shrink, interpolation=cv2.INTER_LINEAR)
         
             detections = net.detect([image])
             processed_detections = net.process_detections(detections[0], width, height, origin=origin)
