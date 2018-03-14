@@ -119,11 +119,11 @@ Where each face is represented as a rectangle:
        <left_x top_y width height detection_score> 
 ```
 
-In order to feed these results to `face-eval`, we need to transform them into the TPR/FPR values. For that we need to do:
+In order to feed these results to `face-eval`, we need to transform them into the TPR/FPR values. For that you need to follow these steps:
 
 1. Get the list of all the test images. This can be obtained by merging all the [10-fold splits](http://vis-www.cs.umass.edu/fddb/FDDB-folds.tgz) into one single file (use the `*-ellipseList.txt` ones). This project already has that list under `paper/FDDB_annotation_ellipseList_new.txt`.
 
-2. The original [evaluation code for FDDB](http://vis-www.cs.umass.edu/fddb/evaluation.tgz). Download it somewhere and compile it. If you are using a newer version of OpenCV (you should have it installed if you compiled Caffe), you will have to modify the `Makefile` in order to link the code correctly:
+2. Get the original [evaluation code for FDDB](http://vis-www.cs.umass.edu/fddb/evaluation.tgz). Download it somewhere and compile it. If you are using a newer version of OpenCV (you should have it installed if you compiled Caffe), you will have to modify the `Makefile` in order to link the code correctly:
 
     - Check where your OpenCV pkg is with `pkg-config --cflags opencv`. Set the variable `INCS` of the Makefile to that path.
     - Check your OpenCV libs with `pkg-config --libs opencv`. Set the variable `LIBS` with those values.
