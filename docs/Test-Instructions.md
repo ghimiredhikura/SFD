@@ -7,11 +7,12 @@ S³FD is a real-time face detector, which performs superiorly on various scales 
 ### Documentation
 
 1. [Preparation](#preparation)
-2. [Download of datasets](#downloaddatasets)
-3. [Compile and Run SFD detector](#testsfddetector)
-4. [Running evaluation benchmarks](#runningevaluationbenchmark)
-5. [Results](#results)
-6. [Issues encountered](#issues)
+2. [Download of datasets](#download-datasets)
+3. [Compile and Run SFD detector](#test-sfd-detector)
+4. [Running evaluation benchmarks](#running-evaluation-benchmark)
+5. [Reproduced Results](#reproduced-results)
+6. [Reference Results](#reference-results)
+7. [Issues encountered](#issues)
 
 ### Preparation
 
@@ -45,7 +46,7 @@ You can also download them manually:
 
 The test scripts are located in `$SFD_ROOT/sfd_test_code/`
 
-#### AFW, PASCAL Face, FDDB
+#### Test SFD on AFW, PASCAL Face, FDDB
 
 To test with those datasets, use the `test.py` script, for example:
 
@@ -60,29 +61,26 @@ Remember to change paths accordingly. Run `test.py -h` to see a list of valid ar
 The test will output, for each dataset, a file in `$SFD_ROOT/sfd_test_code/{AFW,PASCAL,FDDB}/sfd_{afw,pascal,fddb}_dets.txt` which can be used with the `face-eval` tool to plot the precision-recall curves ([Next Section](#runningevaluationbenchmarks). 
 
 
-3. Compile and Run SFD detector on FDDB dataset.
-  ```Shell
-  cd $SFD_ROOT/sfd_test_code/FDDB
-  # You must modify the "Path" in the fddb_test.py to your FDDB path if it is different then in this tutorial.
-  # It will creat sfd_fddb_dets.txt.
-  python fddb_test.py
-  # Fitting the dets from rectangle box to ellipse box.
-  # It will creat sfd_fddb_dets_fit.txt and put it in the FDDB evalution code to evalute.
-  cd fddb_from_rectangle_to_ellipse
-  matlab -nodesktop -nosplash -nojvm -r "run fitting.m;quit;"
-  # If you want to get the results of FDDB in our paper, you should use our 'FDDB_annotation_ellipseList_new.txt'
+NOTE: The original paper uses a Matlab script to transform the rectangular predictions into ellipsis. If you have acces to a Matlab license, you can do that by running:
+```Shell
+# Fitting the dets from rectangle box to ellipse box.
+# It will creat sfd_fddb_dets_fit.txt and put it in the FDDB evalution code to evalute.
+cd fddb_from_rectangle_to_ellipse
+matlab -nodesktop -nosplash -nojvm -r "run fitting.m;quit;"
+# If you want to get the results of FDDB in our paper, you should use our 'FDDB_annotation_ellipseList_new.txt'
   ```
 
-4. Compile and Run SFD detector on WIDER FACE dataset.
-  ```Shell
-  cd $SFD_ROOT/sfd_test_code/WIDER_FACE
-  # You must modify the path in the wider_test.py to your WIDERFACE path. 
-  # It will create detection results in the "eval_tools_old-version" folder.
-  python wider_test.py
-  # If you want to get the results of val set in our paper, you should use the provided "eval_tools_old-version". 
-  # Or you can use latest eval_tools of WIDER FACE.
-  # There is a slight difference between them, since the annotation used for the evaluation is slightly change around March 2017.
-  ```
+#### Test SFD on WIDER FACE
+```Shell
+cd $SFD_ROOT/sfd_test_code/WIDER_FACE
+# You must modify the path in the wider_test.py to your WIDERFACE path. 
+# It will create detection results in the "eval_tools_old-version" folder.
+python wider_test.py
+# If you want to get the results of val set in our paper, you should use the provided "eval_tools_old-version". 
+# Or you can use latest eval_tools of WIDER FACE.
+# There is a slight difference between them, since the annotation used for the evaluation is slightly change around March 2017.
+```
+
 ### Running evaluation benchmarks
 
 Download the [EVALUATION TOOLBOX](https://bitbucket.org/marcopede/face-eval) for evaluation. We call this directory `$CAFFE/SFD/face-eval`.
@@ -162,7 +160,8 @@ NOTE: Mind that the ROC curves in the original paper for FDDB compare against mo
 3. FDDB
 ![Alt text](assets/FDDB_eval.png)
 
-#### Reference (results from original paper)
+#### Reference Results
+Results from the original paper
 
 ![Alt text](assets/AFW-PASCAL.JPG)
 ![Alt text](assets/FDDB.JPG)
