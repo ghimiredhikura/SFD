@@ -12,7 +12,7 @@ S³FD is a real-time face detector, which performs superiorly on various scales 
 4. [Running evaluation benchmarks](#running-evaluation-benchmark)
 5. [Reproduced Results](#reproduced-results)
 6. [Reference Results](#reference-results)
-7. [Issues encountered](#issues)
+7. [Issues encountered](#issues-encountered)
 
 ### Preparation
 
