@@ -7,11 +7,12 @@ S³FD is a real-time face detector, which performs superiorly on various scales 
 ### Documentation
 
 1. [Preparation](#preparation)
-2. [Download of datasets](#download)
-3. [Compile and Run SFD detector](#compilation)
-4. [Running evaluation benchmarks](#runningevaluationbenchmark)
-5. [Results](#results)
-6. [Issues encountered](#issues)
+2. [Download of datasets](#download-datasets)
+3. [Compile and Run SFD detector](#test-sfd-detector)
+4. [Running evaluation benchmarks](#running-evaluation-benchmark)
+5. [Reproduced Results](#reproduced-results)
+6. [Reference Results](#reference-results)
+7. [Issues encountered](#issues-encountered)
 
 ### Preparation
 
@@ -41,71 +42,126 @@ You can also download them manually:
 3. [PASCAL face (train/validataion)](http://host.robots.ox.ac.uk/pascal/VOC/voc2012/index.html) and [PASCAL face (test)](http://host.robots.ox.ac.uk:8080/eval/challenges/voc2012/)
 4. [WIDER FACE](http://mmlab.ie.cuhk.edu.hk/projects/WIDERFace/)
 
-### Compile and Run SFD detector
+### Test SFD detector
 
-1. Compile and Run SFD detector on AFW dataset.
-  ```Shell
-  cd $CAFFE/SFD/sfd_test_code/AFW
-  # You must modify the "Path" in the afw_test.py to your AFW path if it is different then in this tutorial. 
-  # It will creat sfd_afw_dets.txt.
-  python afw_test.py
-  ```
-2. Compile and Run SFD detector on PASCAL dataset.
-  ```Shell
-  cd $CAFFE/SFD/sfd_test_code/PASCAL_FACE
-  # You must modify the "Path" in the pascal_test.py to your PASCAL_face path if it is different then in this tutorial. 
-  # It will creat sfd_pascal_dets.txt.
-  python pascal_test.py
-  ```
-3. Compile and Run SFD detector on FDDB dataset.
-  ```Shell
-  cd $SFD_ROOT/sfd_test_code/FDDB
-  # You must modify the "Path" in the fddb_test.py to your FDDB path if it is different then in this tutorial.
-  # It will creat sfd_fddb_dets.txt.
-  python fddb_test.py
-  # Fitting the dets from rectangle box to ellipse box.
-  # It will creat sfd_fddb_dets_fit.txt and put it in the FDDB evalution code to evalute.
-  cd fddb_from_rectangle_to_ellipse
-  matlab -nodesktop -nosplash -nojvm -r "run fitting.m;quit;"
-  # If you want to get the results of FDDB in our paper, you should use our 'FDDB_annotation_ellipseList_new.txt'
+The test scripts are located in `$SFD_ROOT/sfd_test_code/`
+
+#### Test SFD on AFW, PASCAL Face, FDDB
+
+To test with those datasets, use the `test.py` script, for example:
+
+```
+python2.7 test.py -d FDDB -p ../datasets/FDDB/
+python2.7 test.py -d AFW -p ../datasets/AFW/testimages
+python2.7 test.py -d PASCAL -p ../datasets/PASCAL/VOCdevkit/VOC2012/JPEGImages
+```
+
+Remember to change paths accordingly. Run `test.py -h` to see a list of valid arguments.
+
+The test will output, for each dataset, a file in `$SFD_ROOT/sfd_test_code/{AFW,PASCAL,FDDB}/sfd_{afw,pascal,fddb}_dets.txt` which can be used with the `face-eval` tool to plot the precision-recall curves ([Next Section](#runningevaluationbenchmarks). 
+
+
+NOTE: The original paper uses a Matlab script to transform the rectangular predictions into ellipsis. If you have acces to a Matlab license, you can do that by running:
+```Shell
+# Fitting the dets from rectangle box to ellipse box.
+# It will creat sfd_fddb_dets_fit.txt and put it in the FDDB evalution code to evalute.
+cd fddb_from_rectangle_to_ellipse
+matlab -nodesktop -nosplash -nojvm -r "run fitting.m;quit;"
+# If you want to get the results of FDDB in our paper, you should use our 'FDDB_annotation_ellipseList_new.txt'
   ```
 
-4. Compile and Run SFD detector on WIDER FACE dataset.
-  ```Shell
-  cd $SFD_ROOT/sfd_test_code/WIDER_FACE
-  # You must modify the path in the wider_test.py to your WIDERFACE path. 
-  # It will create detection results in the "eval_tools_old-version" folder.
-  python wider_test.py
-  # If you want to get the results of val set in our paper, you should use the provided "eval_tools_old-version". 
-  # Or you can use latest eval_tools of WIDER FACE.
-  # There is a slight difference between them, since the annotation used for the evaluation is slightly change around March 2017.
-  ```
+#### Test SFD on WIDER FACE
+```Shell
+cd $SFD_ROOT/sfd_test_code/WIDER_FACE
+# You must modify the path in the wider_test.py to your WIDERFACE path. 
+# It will create detection results in the "eval_tools_old-version" folder.
+python wider_test.py
+# If you want to get the results of val set in our paper, you should use the provided "eval_tools_old-version". 
+# Or you can use latest eval_tools of WIDER FACE.
+# There is a slight difference between them, since the annotation used for the evaluation is slightly change around March 2017.
+```
+
 ### Running evaluation benchmarks
 
 Download the [EVALUATION TOOLBOX](https://bitbucket.org/marcopede/face-eval) for evaluation. We call this directory `$CAFFE/SFD/face-eval`.
 
-1. Evaluate our model on AFW dataset.
-```Shell
-# Put sfd_afw_dets.txt from `$CAFFE/SFD/sfd_test_code/AFW` to `$CAFFE/SFD/face-eval/detections/AFW`.
-cd $CAFFE/SFD/face-eval
-python plot_AP.py --dataset AFW
-# The final evaulation ROC graph will be stored in `$CAFFE/SFD/face-eval/`.
+#### Plotting Precision-Recall curves for AFW and PASCAL
+
+1. Copy the previously generated file `./{AFW,PASCAL}/sfd_{afw,pascal}_dets.txt` into `face-eval/detections/{AFW,PASCAL}` respectively.
+
+2. Run:
+
+    ```
+    cd ${face_eval_dir}
+    # For AFW
+    python2.7 plot_AP.py --dataset AFW
+    # For PASCAL
+    python2.7 plot_AP.py --dataset PASCAL 
+    ```
+
+3. Two PDFs files will be generated, `AFW_final.pdf` and `PASCAL_final.pdf` with their respectives Precision-Recall curves.
+
+#### Plotting Precision-Recall curve for FDDB
+
+The generated file by `test.py` has this format for FDDB:
+
 ```
-2. Evaluate our model on PASCAL face dataset
-```Shell
-# Put sfd_pascal_dets.txt from `$CAFFE/SFD/sfd_test_code/PASCAL_face` to `$CAFFE/SFD/face-eval/detections/PASCAL`
-cd $CAFFE/SFD/face-eval
-python plot_AP.py 
-# The final evaluation ROC graph will be stored in `$CAFFE/SFD/face-eval/.
+<image name i>
+<number of faces in this image =im>
+<face i1>
+<face i2>
+...
+<face im>
+...
+
+Where each face is represented as a rectangle:
+
+       <left_x top_y width height detection_score> 
 ```
+
+In order to feed these results to `face-eval`, we need to transform them into the TPR/FPR values. For that you need to follow these steps:
+
+1. Get the list of all the test images. This can be obtained by merging all the [10-fold splits](http://vis-www.cs.umass.edu/fddb/FDDB-folds.tgz) into one single file (use the `*-ellipseList.txt` ones). This project already has that list under `paper/FDDB_annotation_ellipseList_new.txt`.
+
+2. Get the original [evaluation code for FDDB](http://vis-www.cs.umass.edu/fddb/evaluation.tgz). Download it somewhere and compile it. If you are using a newer version of OpenCV (you should have it installed if you compiled Caffe), you will have to modify the `Makefile` in order to link the code correctly:
+
+    - Check where your OpenCV pkg is with `pkg-config --cflags opencv`. Set the variable `INCS` of the Makefile to that path.
+    - Check your OpenCV libs with `pkg-config --libs opencv`. Set the variable `LIBS` with those values.
+    - Modify the `evaluate` rule: 
+        ```
+        evaluate: $(OBJS)
+          	$(CC) $(OBJS) -o $@ $(LIBS)
+        ```
+    - Run `make`. If you face any trouble please visit the [Official FDDB FAQ](http://vis-www.cs.umass.edu/fddb/faq.html)
+
+3. Once you have successfully compiled the `evaluate` binary, you can process the detections:
+
+    ```
+    ./evaluate -a path/to/all_faces_ellipse_list -d path/to/generated/detections/by/testpy/ -f 0 -i path/where/FDDB/images/are/ -l image/list/to/test/ -r <prefix of output files> 
+
+    # For example
+    ./evaluate -a ../sfd_test_code/FDDB/all_folds_ellipseList.label -d ../sfd_test_code/FDDB/sfd_fddb_dets.txt -f 0 -i ../datasets/FDDB/ -l ../sfd_test_code/FDDB/fddb_img_list.txt -r roc_results
+    ```
+   To check what each argument means, run `./evaluate -h`
+
+4. The previous step should have produced 2 files: `<prefix>ContROC.txt` and `<prefix>DiscROC.txt`, which correspond to the Continous ROC and Discontinuous ROC curves respectively. `face-eval` uses the Discontinuous ROC, so copy that file into `face-eval/detections/fddb/`
+
+5. Go to `face-eval` and run `python2.7 plot_AP_fddb.py`
+
+6. A `FDDB_final.pdf` file should be generated with the ROC curves.
+
+NOTE: Mind that the ROC curves in the original paper for FDDB compare against more models whereas `face-eval` has fewer models to compare. Anyway, you should check that the Discontinuous ROC value is around 0.983.
 
 ### Reproduced Results
 1. AFW 
 ![Alt text](assets/AFW_eval.png)
 2. PASCAL face
 ![Alt text](assets/PASCAL_eval.png)
+3. FDDB
+![Alt text](assets/FDDB_eval.png)
 
-#### Reference (results from original paper)
+#### Reference Results
+Results from the original paper
 
 ![Alt text](assets/AFW-PASCAL.JPG)
 ![Alt text](assets/FDDB.JPG)

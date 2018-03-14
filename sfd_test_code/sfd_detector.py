@@ -73,10 +73,7 @@ class SFD_NET(caffe.Net):
 
         return detections
 
-    def process_detections(self, detections, width, height, origin='AFW'):
-        if origin not in ['AFW', 'PASCAL', 'FDDB', 'WIDER']:
-            raise Exception("Dataset of origin must belong to 'AFW', 'PASCAL', 'FDDB', 'WIDER'")
-
+    def process_detections(self, detections, width, height):
         results = []
         det_conf = detections[0, 0, :, 2]
         det_xmin = detections[0, 0, :, 3]
@@ -92,14 +89,10 @@ class SFD_NET(caffe.Net):
         det_ymax = det_ymax[keep_index]
 
         for i in range(det_conf.shape[0]):
-            xmin = int(round(det_xmin[i] * width))
-            ymin = int(round(det_ymin[i] * height))
-            xmax = int(round(det_xmax[i] * width))
-            ymax = int(round(det_ymax[i] * height))
-            # Simple fitting to AFW/PASCAL, because the gt box of training
-            # data (i.e., WIDER FACE) is longer than the gt box of AFW/PASCAL
-            if origin in ['AFW', 'PASCAL']:
-                ymin += 0.2 * (ymax - ymin + 1)   
+            xmin = det_xmin[i] * width
+            ymin = det_ymin[i] * height
+            xmax = det_xmax[i] * width
+            ymax = det_ymax[i] * height
             score = det_conf[i]
             results.append((score, xmin, ymin, xmax, ymax))
 

@@ -26,10 +26,30 @@ def process_imgs_list(imgs_list_file, output_file, dataset_path, origin, device=
                 image = cv2.resize(image, None, None, fx=im_shrink, fy=im_shrink, interpolation=cv2.INTER_LINEAR)
         
             detections = net.detect([image])
-            processed_detections = net.process_detections(detections[0], width, height, origin=origin)
+            processed_detections = net.process_detections(detections[0], width, height)
         
+
+            # Specific format for FDDB dataset
+            if origin == 'FDDB':
+                f.write('{:s}\n'.format(Name[:-1]))
+                f.write('{:d}\n'.format(len(processed_detections)))
+
             for det in processed_detections:
-                f.write('{:s} {:.3f} {:.1f} {:.1f} {:.1f} {:.1f}\n'.format(Name[:-1], *det))
+                score, xmin, ymin, xmax, ymax = det
+                if origin in ['AFW', 'PASCAL']:
+                    # Simple fitting to AFW/PASCAL, because the gt box of training
+                    # data (i.e., WIDER FACE) is longer than the gt box of AFW/PASCAL
+                    ymin += 0.2 * (ymax - ymin + 1)   
+
+                if origin == 'FDDB':
+                    # For FDDB, save rectangle in FDDB format as stated in
+                    # https://github.com/zimenglan-sysu-512/fddb-eval-code
+                    f.write('{:.6f} {:.6f} {:.6f} {:.6f} {:.2f}\n'.
+                            format(xmin, ymin, (xmax-xmin+1), (ymax-ymin+1), score))
+                else:
+                    f.write('{:s} {:.3f} {:.1f} {:.1f} {:.1f} {:.1f}\n'.
+                            format(Name[:-1], score, xmin, ymin, xmax, ymax))
+
             bar.update(i)
 
 
