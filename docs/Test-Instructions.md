@@ -140,7 +140,7 @@ In order to feed these results to `face-eval`, we need to transform them into th
     ./evaluate -a path/to/all_faces_ellipse_list -d path/to/generated/detections/by/testpy/ -f 0 -i path/where/FDDB/images/are/ -l image/list/to/test/ -r <prefix of output files> 
 
     # For example
-    ./evaluate -a ../sfd_test_code/FDDB/all_folds_ellipseList.label -d ../sfd_test_code/FDDB/sfd_fddb_dets.txt -f 0 -i ../datasets/FDDB/ -l ../sfd_test_code/FDDB/fddb_img_list.txt -r roc_results
+    ./evaluate -a ../sfd_test_code/FDDB/FDDB_annotation_ellipseList_new.txt -d ../sfd_test_code/FDDB/sfd_fddb_dets.txt -f 0 -i ../datasets/FDDB/ -l ../sfd_test_code/FDDB/fddb_img_list.txt -r roc_results
     ```
    To check what each argument means, run `./evaluate -h`
 
